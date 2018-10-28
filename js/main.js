@@ -14,14 +14,59 @@
 // [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 8] // 24
 // [2, 2, 2, 2, 2] // 0*/
 
-myArrayFirst = [1,3,1,7,1,5,1];
+arrFirst = [1,3,1,7,1,5,1];
+
+function findMaxNum(array) {
+    let maxNum = 0;
+    let index = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        if (maxNum < array[i]){
+            maxNum = array[i];
+            index = i;
+        }
+    }
+
+    return {
+        maxNum: maxNum,
+        index: index
+    };
+}
+
+let max = findMaxNum(arrFirst);
+
+let newArrayRight = arrFirst.slice(max.index + 1);
+let newArrayLeft = arrFirst.slice(0, max.index);
+
+let rightMax = findMaxNum(newArrayRight);
+
+let leftMax = findMaxNum(newArrayLeft);
+
+function sumWater(array, startIndex = 0, maxValue, finishIndex) {
+    let sum = 0;
+    let water = 0;
+
+    for (let i = startIndex; i < finishIndex; i++) {
+        water = maxValue - array[i];
+        sum = sum + water;
+    }
+
+    return sum;
+}
+
+let allWater = sumWater(newArrayLeft, leftMax.index, leftMax.maxNum, newArrayLeft.length);
+allWater = allWater + sumWater(newArrayRight, 0, rightMax.maxNum, rightMax.index);
+
+console.log(allWater);
 
 
-myArrayFirst.forEach(function(element) {
-    console.log(element);
 
 
-});
+
+
+
+
+
 
 
 
