@@ -14,7 +14,7 @@
 // [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 8] // 24
 // [2, 2, 2, 2, 2] // 0*/
 
-arrFirst = [1,3,1,7,1,5,1];
+arrFirst = [2, 5, 1, 3, 1, 2, 1, 7, 7, 6];
 
 function findMaxNum(array) {
     let maxNum = 0;
