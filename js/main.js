@@ -14,14 +14,6 @@
 // [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 8] // 24
 // [2, 2, 2, 2, 2] // 0*/
 
-myArrayFirst = [1,3,1,7,1,5,1];
-
-
-myArrayFirst.forEach(function(element) {
-    console.log(element);
-
-
-});
 
 
 
