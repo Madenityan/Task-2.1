@@ -14,6 +14,9 @@
 // [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 8] // 24
 // [2, 2, 2, 2, 2] // 0*/
 
+
+/*-------------------- THIS EXAMPLE WORKING WHEN IN ARRAY NOT 0 or - NUMBER ------------------------*/
+
 arrFirst = [2, 5, 1, 3, 1, 2, 1, 7, 7, 6];
 
 function findMaxNum(array) {
@@ -26,7 +29,6 @@ function findMaxNum(array) {
             index = i;
         }
     }
-
     return {
         maxNum: maxNum,
         index: index
@@ -50,16 +52,12 @@ function sumWater(array, startIndex = 0, maxValue, finishIndex) {
         water = maxValue - array[i];
         sum = sum + water;
     }
-
     return sum;
 }
 
 let allWater = sumWater(newArrayLeft, leftMax.index, leftMax.maxNum, newArrayLeft.length);
 allWater = allWater + sumWater(newArrayRight, 0, rightMax.maxNum, rightMax.index);
-
 console.log(allWater);
-
-
 
 
 
