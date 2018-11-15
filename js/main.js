@@ -14,8 +14,8 @@
 // [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 8] // 24
 // [2, 2, 2, 2, 2] // 0*/
 
-
-/*-------------------- THIS EXAMPLE WORKING WHEN IN ARRAY NOT 0 or - NUMBER ------------------------*/
+/*-------------------------------- FIRST VARIANT ----------------------------------------*/
+/*-------------------- THIS EXAMPLE WORKING WHEN IN ARRAY NOT 0 ------------------------*/
 
 arrFirst = [2, 5, 1, 3, 1, 2, 1, 7, 7, 6];
 
@@ -59,7 +59,31 @@ let allWater = sumWater(newArrayLeft, leftMax.index, leftMax.maxNum, newArrayLef
 allWater = allWater + sumWater(newArrayRight, 0, rightMax.maxNum, rightMax.index);
 console.log(allWater);
 
+/*-------------------------------------- SECOND VARIANT ------------------------------------------------*/
 
+function maxWater(heights) {
+    let left = 0,
+        right = heights.length - 1,
+        leftMax = heights[left],
+        rightMax = heights[right],
+        sum = 0;
+
+    while (left < right) {
+        if (leftMax < rightMax) {
+            let height = heights[++left];
+            leftMax = Math.max(leftMax, height);
+            sum += leftMax - height;
+        } else {
+            let height = heights[--right];
+            rightMax = Math.max(rightMax, height);
+            sum += rightMax - height;
+        }
+    }
+    return sum;
+}
+
+let allWaterTwo = maxWater([2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 8]);
+console.log(allWaterTwo);
 
 
 
